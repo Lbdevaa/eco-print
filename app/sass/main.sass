@@ -2,7 +2,7 @@
 @import "libs"
 @import "vars"
 @import "base"
-// @import "icons"
+@import "icons"
 
 html
   // scroll-behavior: smooth
@@ -133,6 +133,7 @@ section
     text-decoration: none
     font-weight: bold
     line-height: 1.2
+
 .burger
   width: 27px
   height: 12px
@@ -160,7 +161,6 @@ section
       height: 2px
       transition: .35s all ease
       background: #3B3B3B
-
   &.active
     .burger__line
       transform: rotate(45deg) translate(0%, 0%)
@@ -183,7 +183,6 @@ section
   >.container
     grid-template-columns: 1fr max-content
     padding: 100px 0 120px
-
   &__box
     align-items: center
     height: inherit
@@ -222,6 +221,15 @@ section
   color: #ffffff
   text-decoration: none
   background: #68727E
+  position: relative
+  &::before
+    position: absolute
+    background-color: #f6f6f6
+    content: ''
+    width: 100%
+    height: 50px
+    top: 0
+    z-index: -1
   >div
     grid-template-columns: max-content 1fr
     grid-column-gap: 125px
@@ -259,9 +267,18 @@ section
       text-decoration: none
       color: #ffffff
       display: block
+.leaf
+  position: absolute
 
 .banner
   padding: 120px 0 50px
+  position: relative
+  &__leaf
+    width: 80px
+    height: 80px
+    left: 30px
+    left: 0
+    bottom: -80px
   >div
     position: relative
   &__title
@@ -285,20 +302,31 @@ section
     position: absolute
     right: 0
     top: 0
-    max-height: 390px
+    height: 390px
+    max-width: 495px
+  &__img
+    height: 100%
+    width: 100%
+    object-fit: cover
   &__btn
     display: block
     max-width: max-content
 
 .advantages
   padding: 100px 0
+  position: relative
+  &__leaf
+    top: 0
+    right: 0
+    width: 170px
+    height: 170px
   >div
     grid-template-columns: max-content 1fr
     grid-column-gap: 80px
   &__title
     font-size: em(40px)
     line-height: 1.2
-    max-width: 780px
+    max-width: 840px
     margin: 0 0 em(18px)
     grid-column: 1/3
   &__img-box
@@ -306,6 +334,7 @@ section
     overflow: hidden
     max-width: 365px
     height: 300px
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1))
   &__img
     height: 100%
     width: 100%
@@ -334,9 +363,34 @@ section
   list-style: none
   grid-template-columns: 1fr 1fr
   grid-gap: 45px
+  &__item
+    grid-template-columns: max-content 1fr
+    grid-column-gap: 15px
+  &__icon
+    grid-row: 1/3
+    width: 50px
 
 .what-is
-  padding: 80px 0 40px
+  padding: 220px 0 220px
+  position: relative
+  &::before
+    position: absolute
+    content: ''
+    background: url('../img/circle.svg') no-repeat center center
+    background-size: contain
+    top: -5px
+    left: 0
+    width: 100vw
+    height: 150px
+  &::after
+    position: absolute
+    content: ''
+    background: url('../img/wave-top.svg') no-repeat center center
+    background-size: cover
+    bottom: 0
+    left: 0
+    width: 100vw
+    height: 190px
   >div
   &__title
     font-size: em(45px)
@@ -344,8 +398,29 @@ section
   &__boxes
     grid-template-columns: repeat(3, 1fr)
     grid-column-gap: 33px
+    margin-bottom: 40px
+
+  &__under-text
+    font-size: em(18px)
+    font-weight: 600
+    margin: 0 0
+    padding-left: 20px
+    position: relative
+    &::before
+      position: absolute
+      content: ''
+      width: 13px
+      height: 13px
+      background-image: url('../img/green-circle.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+
 .what-is-box
   background-color: #fff
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
   border-radius: 10px
   padding: 22px 44px 40px
   &__title
@@ -355,9 +430,17 @@ section
     margin: 0 0 em(10px)
   &__text
     margin: 0
-
+  &__icon
+    font-size: 30px
+    margin-bottom: 4px
+    height: 32px
 .use
   padding: 0 0 70px
+  position: relative
+  &__leaf
+    left: 0
+    bottom: 0
+    height: 250px
   >div
   &__title
     margin: 0 0 em(7px)
@@ -380,9 +463,12 @@ section
     margin: 0 auto
   &__cartridges
     margin-bottom: 40px
+    .cartridge:nth-of-type(n+9)
+      display: none
 
 .filter
   &__text
+    font-weight: 600
     display: inline-block
     font-size: em(18px)
     margin: 0 em(22px) 0  0
@@ -409,9 +495,10 @@ section
   padding: 15px
   border-radius: 5px
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2))
-
   &__img-box
     height: 160px
+    border-radius: 10px
+    overflow: hidden
   &__img
     object-fit: cover
     height: 100%
@@ -460,8 +547,12 @@ section
 
 .brands
   padding: 70px 0 120px
+  position: relative
+  &__leaf
+    right: 0
+    bottom: 0
+    width: 180px
   >div
-
   &__title
     margin: 0 0 em(3px)
     line-height: 1.2
@@ -508,8 +599,26 @@ section
 
 .modern
   position: relative
-  padding: 70px
+  padding: 220px 0
   min-height: 520px
+  &::before
+    position: absolute
+    content: ''
+    background: url('../img/circle-bot.svg') no-repeat center center
+    background-size: cover
+    top: 0
+    left: 0
+    width: 100vw
+    height: 120px
+  &::after
+    position: absolute
+    content: ''
+    background: url('../img/circle-top.svg') no-repeat center center
+    background-size: cover
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 120px
   &__title
     margin: 0 0 em(18px)
     max-width: 700px
@@ -522,9 +631,8 @@ section
   &__image
     position: absolute
     right: 0
-    top: 70px
+    top: 30%
     max-width: 34vw
-  &__advantages
 
 .modern-advantage
   display: inline-block
@@ -536,6 +644,9 @@ section
     font-weight: 700
     color: $green
     font-size: em(18px)
+  &__icon
+    height: 50px
+    width: 50px
 
 .dealer
   padding: 60px 0 100px
@@ -591,13 +702,23 @@ section
 
 .base
   padding: 90px 0 125px
+  position: relative
+  &__leaf
+    width: 200px
+    right: 0
+    bottom: 0
   >div
-
+  &__icon
+    display: inline-block
+    margin-right: 12px
+    width: 32px
+    height: 30px
   &__title
     margin: 0 0 em(10px)
   &__subtitle
     margin: 0 0 em(36px)
     font-weight: 600
+    display: inline-block
     span
       font-size: em(20px)
       text-transform: uppercase
@@ -607,6 +728,7 @@ section
     margin-bottom: 37px
   &__under
     color: $green
+
 .base-box
   background-color: #ffffff
   border-radius: 10px
@@ -615,6 +737,9 @@ section
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1))
   &__text
     margin: 0
+  &__icon
+    height: 40px
+    margin-bottom: 5px
 
 .guarantees
   padding: 75px 0
@@ -629,6 +754,7 @@ section
     font-weight: 700
     font-size: em(18px)
     margin: 0 0 em(25px)
+
 .guarantees-list
   grid-template-columns: repeat(4, 1fr)
   grid-gap: 40px
@@ -639,7 +765,7 @@ section
   border-radius: 10px
   overflow: hidden
   &__img-box
-    background-color: #ddd
+    background-color: #e1e1e1
     height: 136px
     width: 100%
   &__img
@@ -657,7 +783,17 @@ section
     margin: 0
 
 .discount
-  padding: 60px 0 70px
+  padding: 260px 0 70px
+  position: relative
+  &::before
+    position: absolute
+    content: ''
+    background: url('../img/circle.svg') no-repeat center center
+    background-size: contain
+    top: -5px
+    left: 0
+    width: 100vw
+    height: 150px
   >div
     border-radius: 20px
     background: #ffffff
@@ -787,4 +923,95 @@ section
   &__text-image
     margin: 0
     text-align: center
+
+.order-popup
+  max-width: 900px
+  background: rgba(242, 242, 242, 0.8)
+  padding: 60px 50px 50px
+  grid-template-columns: 1fr 1fr
+  &__text-side
+    align-content: space-between
+  &__title
+    font-size: em(30px)
+    font-weight: bold
+    margin: 0 0 em(10px)
+  &__descr
+    margin: 0 0 em(20px)
+  &__features
+    margin: 0 0 em(36px)
+  &__price
+    font-size: em(18px)
+    margin: 0 0 em(25px)
+    color: $green
+    font-weight: bold
+  &__btn
+    display: block
+    text-align: center
+    height: max-content
+    margin-bottom: em(12px)
+    &:last-child
+      margin: 0
+
+.product-gallery
+  &__big
+    width: 100%
+    min-height: 280px
+    background-color: #ffffff
+    border-radius: 5px
+    overflow: hidden
+    margin-bottom: 17px
+  &__img-big
+    height: 100%
+    width: 100%
+    object-fit: contain
+
+  &__nav
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 15px
+  &__img-nav
+    border-radius: 5px
+    height: 87px
+
+.buy-popup
+  grid-template-columns: 1fr
+  grid-gap: 0
+  width: 460px
+  padding: 26px 40px 40px
+  height: max-content
+  background: rgba(242, 242, 242, 0.8)
+  &__img
+    height: 184px
+    width: 100%
+    object-fit: cover
+    border-radius: 5px
+    margin-bottom: 20px
+  &__text
+    margin: 0 0 em(3px)
+  &__title
+    font-weight: 700
+    margin: 0 0 em(20px)
+  &__price
+    color: $green
+    font-weight: bold
+    font-size: em(18px)
+    margin: 0 0 em(25px)
+
+.brand-popup
+  &__img-box
+    background: #FFFFFF
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
+    border-radius: 10px
+    padding: 20px
+    height: 160px
+  &__img
+    object-fit: contain
+  &__text-image
+    font-weight: 600
+    text-align: center
+    margin: 0 0 em(48px)
+  &__text-footer
+    margin: 0 auto 0
+    text-align: center
+    max-width: 360px
+
 @import "media" // Всегда в конце

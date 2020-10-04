@@ -1,55 +1,465 @@
 @import "vars"
 
-/*==========  Desktop First  ==========*/
+/*==========	Desktop First	==========*/
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px)
 	/**/
 
-
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
-	/**/
+	body
+		font-size: 14px
 
+	@function em($pixels, $context: 14px)
+		@return #{$pixels/$context}em
+
+	@function rem($pixels, $context: 14px)
+		@return #{$pixels/$context}rem
+
+	.header
+		padding: 27px 0
+		>div
+			grid-column-gap: 0
+		&__logo
+			margin-right: 10px
+			width: 55px
+			height: 43px
+		&__title
+			font-size: em(10px)
+		&__phone
+			font-size: em(10px)
+			position: absolute
+			left: 85px
+			bottom: 30px
+
+	.burger-menu
+		background: $green
+		padding: 48px 0 0
+		min-height: 85vh
+		&__bg
+			display: none
+		>.container
+			padding: 0 20px
+		&__img
+			display: none
+		&__list
+			padding: 0
+		&__item
+			font-size: em(14px)
+			margin: 0 0 em(30px)
+			font-weight: 700
+
+	.section-title
+		font-size: em(25px)
+		margin: 0 0 em(7px)
+
+	.btn
+		font-size: em(14px)
+		font-weight: 600
+		width: 100%
+		display: block
+		max-width: 100%
+		text-align: center
+		padding: em(18px)
+
+	.banner
+		padding: 30px 0 5px
+		&__leaf
+			bottom: auto
+			top: 45%
+			left: -20px
+		>div
+			display: grid
+		&__title
+			font-size: em(25px)
+			margin: 0 0 em(12px)
+			max-width: 255px
+		&__img-box
+			position: relative
+			grid-row: 3
+			margin-bottom: 20px
+			height: 210px
+			max-width: 100%
+		&__img
+			object-fit: contain
+		&__list
+			font-size: em(14px)
+
+	.advantages
+		padding: 40px 0 90px
+		&__leaf
+			top: -10px
+			width: 100px
+			height: auto
+			// right: -20px
+		>div
+			grid-template-columns: 1fr
+		&__title
+			grid-column: 1
+			margin-bottom: em(12px)
+		&__img-box
+			margin-bottom: 30px
+			max-width: 100%
+
+	.advantage-list
+		grid-template-columns: 1fr
+		grid-gap: 30px
+
+	.advantage
+		&__title
+			font-size: em(15px)
+		&__text
+
+	.what-is
+		padding: 80px 0
+		&::before
+			height: 50px
+			top: -10px
+		&::after
+			background-size: contain
+			height: 50px
+		&__boxes
+			grid-template-columns: 1fr
+			grid-gap: 30px
+			margin-bottom: 30px
+		&__under-text
+			font-size: em(15px)
+			&::before
+				top: 0
+				transform: translateY(20%)
+
+	.use
+		&__leaf
+			width: 50px
+			height: 45px
+			left: -10px
+		&__title
+			margin-bottom: em(12px)
+		&__cartridges
+			grid-template-columns: 1fr
+			margin-bottom: 30px
+			.cartridge:nth-of-type(n+5)
+				display: none
+		&__more-btn
+			font-size: em(15px)
+			margin-bottom: em(28px)
+
+	.cartridge
+		&__img-box
+			height: 190px
+			margin-bottom: 20px
+		&__title
+			margin: 0
+		&__resource
+			margin: 0 0 em(12px)
+		&__text
+			margin: 0
+		&__btn
+			font-weight: 500
+
+	.filter
+		&__select
+			font-weight: 500
+			// max-width: max-content
+			max-width: 264px
+		&__text
+			font-size: em(15px)
+			margin: 0 0 em(10px)
+
+	.calculation
+		padding: 50px 20px
+		>div
+			grid-template-columns: 1fr
+			grid-gap: 0
+			padding: 25px 20px
+		&__title
+			max-width: 275px
+			// padding-right: em(20px)
+		&__subtitle
+			max-width: 275px
+			// padding-right: em(60px)
+			margin: 0 0 em(12px)
+		&__img-btn
+			grid-column: 1
+			grid-row: 3
+			margin: auto
+			max-width: none
+		&__img-box
+			margin: auto
+			max-width: none
+		&__btn
+			left: 0
+			right: 0
+
+	.brands
+		padding: 30px 0
+		&__leaf
+			display: none
+		&__choose
+			margin-bottom: 30px
+		&__subtitle
+			font-weight: 600
+			margin-bottom: em(30px)
+
+	.brands-choose
+		grid-gap: 30px 20px
+		grid-template-columns: 1fr 1fr
+		&__title
+			grid-column: 1/3
+			font-weight: 600
+			font-size: em(15px)
+			margin: 0
+
+	.brand
+		&__img-box
+			width: auto
+			padding: 7px
+		&__name
+			font-size: em(14px)
+			margin: em(7px) 0
+
+	.modern
+		padding: 60px 0
+		min-height: auto
+		overflow: hidden
+		&::before
+			height: 20px
+			background-size: contain
+		&::after
+			height: 20px
+			background-size: contain
+		&__image
+			position: relative
+			max-width: 100%
+			right: -20px
+			top: auto
+		&__text-box
+			margin-bottom: 30px
+
+	.modern-advantage
+		margin-bottom: 30px
+		&__text
+			margin: 0
+
+	.dealer
+		padding: 50px 20px
+		>div
+			grid-template-columns: 1fr
+			grid-gap: 0
+			padding: 25px 20px
+		&__title
+			max-width: 270px
+		&__subtitle
+			max-width: 270px
+			margin: 0 0 em(12px)
+		&__img-btn
+			grid-column: 1
+			grid-row: 3
+		&__img-box
+			margin: auto
+			grid-column: 1
+			grid-row: 3
+			width: 100%
+			height: 230px
+		&__img
+			object-fit: contain
+		&__btn
+			left: 0
+			right: 0
+		&__form
+			grid-template-columns: 1fr
+			grid-gap: 10px
+
+	.base
+		padding: 50px 0
+		&__leaf
+			bottom: 0
+			right: 0
+			height: 60px
+			width: 60px
+		&__boxes
+			grid-template-columns: 1fr
+			grid-gap: 30px
+		&__title
+			margin-bottom: em(18px)
+		&__subtitle
+			font-size: em(15px)
+			margin-bottom: em(28px)
+			max-width: 320px
+		&__under
+			margin: 0
+		&__icon
+			vertical-align: top
+	.base-box
+		padding: 25px
+
+	.guarantees
+		padding: 30px 0
+		&__subtitle
+			margin-bottom: em(30px)
+			max-width: 280px
+		&__text
+			max-width: 320px
+			font-size: em(15px)
+			margin-bottom: em(18px)
+
+	.guarantees-list
+		grid-template-columns: 1fr
+		grid-gap: 30px
+
+	.guarantee
+		&__img-box
+			height: 155px
+		&__img
+			object-fit: contain
+		&__text-box
+			padding: 8px 17px 35px
+
+	.discount
+		padding: 100px 20px 20px
+		&::before
+			height: 50px
+		>div
+			padding: 25px 20px
+			grid-template-columns: 1fr
+		&__img-box
+			grid-column: 1
+			width: 100%
+			grid-row: 3
+		&__img
+			object-fit: contain
+		&__form
+			grid-template-columns: 1fr
+			grid-gap: 10px
+		&__title
+			max-width: 270px
+		&__subtitle
+			margin-bottom: em(20px)
+			font-weight: 500
+
+	.delivery
+		padding: 30px 0 50px
+		&__title
+			margin: 0 0 em(11px)
+		&__map
+			grid-column: 1
+			grid-row: 3
+			width: 100%
+			height: 168px
+			margin-bottom: 30px
+		&__text-box
+			min-height: auto
+		&__text
+			margin: 0 0 em(20px)
+		&__footer-text
+			font-size: em(14px)
+			margin: 0 0 em(10px)
+
+	.footer
+		border-radius: 30px 30px 0 0
+		>div
+			grid-template-columns: 1fr
+		&__logo-text
+			font-size: em(14px)
+			margin: 0 0 em(14px)
+		&__logo
+			width: 77px
+			height: 66px
+			margin: 0 0 24px
+
+	.footer-menu
+		grid-template-columns: 1fr
+		margin-bottom: 30px
+		&__item
+			max-width: 185px
+			margin-bottom: 30px
+		&__title
+			padding-bottom: em(10px)
+			margin-bottom: em(10px)
+		&__text
+			margin: 0
+
+	.stay-dealer
+		&__text
+			// font-size: em(12px)
+			// padding: em(10px)
+		&__img
+			// width: 30px
+
+	.white-popup
+		padding: 30px 20px
+		grid-template-columns: 1fr
+		grid-gap: 20px
+		.mfp-close
+			font-size: em(30px)
+			font-weight: bold
+		&__title
+			grid-column: 1
+			font-size: em(20px)
+		&__text-img
+			grid-row: 2
+		&__img-box
+			height: 150px
+			width: 100%
+		&__img
+			margin: auto
+		&__form
+			width: 100%
+
+	.form-popup
+		&__input
+			// padding: em(6px)
+			font-size: em(12px)
+
+	.product-gallery
+		&__big
+			min-height: auto
+			height: 120px
+		&__nav
+			height: 70px
+		&__img-nav
+			width: 100%
+			height: 100%
+	.buy-popup
+		grid-gap: 0
+		width: 100%
+		&__img
+			height: 120px
+			// width: 320px
+
+		/**/
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
 	/**/
 
-
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
 	/**/
-
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 	/**/
 
-
-/*==========  Mobile First  ==========*/
+/*==========	Mobile First	==========*/
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px)
 	/**/
 
-
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px)
 	/**/
-
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px)
 	/**/
 
-
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px)
 	/**/
 
-
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px)
 	/**/
-

@@ -17,6 +17,10 @@ $(function () {
     type: "inline",
     midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
   });
+  $(".use__more-btn").click(function (e) {
+    e.preventDefault();
+    $(".cartridge:nth-of-type(n+9)").fadeToggle();
+  });
 
   //
   // const anchors = document.querySelectorAll('a[href*="#"]');

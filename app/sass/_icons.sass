@@ -1,0 +1,90 @@
+@font-face
+    font-family: "Icons"
+    src: url('../fonts/Icons.eot')
+    src: url('../fonts/Icons.eot?#iefix') format('eot'), url('../fonts/Icons.woff') format('woff'), url('../fonts/Icons.ttf') format('truetype'), url('../fonts/Icons.svg#Icons') format('svg')
+
+@mixin icon-styles
+    font-family: "Icons"
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    font-style: normal
+    font-variant: normal
+    font-weight: normal
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none
+    text-transform: none
+
+
+%icon
+    +icon-styles
+
+@function icon-char($filename)
+    $char: ""
+
+    @if $filename == box
+        $char: "\E001"
+    
+    @if $filename == check
+        $char: "\E002"
+    
+    @if $filename == city
+        $char: "\E003"
+    
+    @if $filename == eco
+        $char: "\E004"
+    
+    @if $filename == like
+        $char: "\E005"
+    
+    @if $filename == pallete
+        $char: "\E006"
+    
+    @if $filename == people
+        $char: "\E007"
+    
+    @if $filename == percent
+        $char: "\E008"
+    
+    @if $filename == purse
+        $char: "\E009"
+    
+    @if $filename == setting
+        $char: "\E00A"
+    
+    @if $filename == tick
+        $char: "\E00B"
+    
+    @return $char
+
+
+@mixin icon($filename, $insert: before, $extend: true)
+    &:#{$insert}
+        @if $extend
+            @extend %icon
+        @else
+            +icon-styles
+        
+        content: icon-char($filename)
+
+.icon-box
+    +icon(box)
+.icon-check
+    +icon(check)
+.icon-city
+    +icon(city)
+.icon-eco
+    +icon(eco)
+.icon-like
+    +icon(like)
+.icon-pallete
+    +icon(pallete)
+.icon-people
+    +icon(people)
+.icon-percent
+    +icon(percent)
+.icon-purse
+    +icon(purse)
+.icon-setting
+    +icon(setting)
+.icon-tick
+    +icon(tick)
